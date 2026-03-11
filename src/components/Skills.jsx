@@ -19,7 +19,7 @@ function Skills() {
       }}
     >
       <div className={styles.container}>
-        <div className={styles.label}>// Technical Skills</div>
+        <div className={styles.label}>{/* Technical Skills */}</div>
         <h2 className={styles.title}>What I Work With</h2>
 
         <div className={styles.skillsGrid}>

@@ -3,7 +3,7 @@
  * Contact information with copy-to-clipboard functionality
  */
 
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useCopyToClipboard } from '../hooks';
 import { CONTACT_INFO } from '../config/portfolio';
 import Section from './Section';
@@ -40,7 +40,7 @@ function Contact() {
   return (
     <Section id="contact" style={{ padding: '80px 5% 120px', position: 'relative' }}>
       <div className={styles.container}>
-        <div className={styles.label}>// Contact</div>
+        <div className={styles.label}>{/* Contact */}</div>
         <h2 className={styles.title}>Let's Build Something</h2>
 
         <p className={styles.description}>
