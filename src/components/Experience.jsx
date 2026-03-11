@@ -66,7 +66,7 @@ function Experience() {
   return (
     <Section id="experience" style={{ padding: '80px 5%', position: 'relative' }}>
       <div className={styles.container}>
-        <div className={styles.label}>// Professional Experience</div>
+        <div className={styles.label}>{/* Professional Experience */}</div>
         <h2 className={styles.title}>Work History</h2>
 
         <div className={styles.companyInfo}>

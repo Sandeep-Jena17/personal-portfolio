@@ -3,7 +3,7 @@
  * Base styles, animations, and utilities
  */
 
-import { COLORS, TYPOGRAPHY, SPACING } from '../constants/theme';
+import { COLORS, TYPOGRAPHY } from '../constants/theme';
 
 export const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');

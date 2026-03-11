@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { ABOUT, CONTACT_INFO } from '../config/portfolio';
+import { CONTACT_INFO } from '../config/portfolio';
 import Section from './Section';
 import styles from './About.module.css';
 
@@ -12,7 +12,7 @@ function About() {
   return (
     <Section id="about" style={{ padding: '80px 5%', position: 'relative' }}>
       <div className={styles.container}>
-        <div className={styles.label}>// About Me</div>
+        <div className={styles.label}>{/* About Me */}</div>
         <h2 className={styles.title}>Who I Am</h2>
 
         <div className={styles.grid}>

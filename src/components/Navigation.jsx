@@ -21,9 +21,7 @@ function Navigation() {
     }
   }, []);
 
-  const handleMenuClose = useCallback(() => {
-    setMenuOpen(false);
-  }, []);
+
 
   return (
     <nav className={styles.navbar}>
