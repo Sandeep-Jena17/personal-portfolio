@@ -1,0 +1,31 @@
+/**
+ * Footer Styles
+ */
+
+.footer {
+  border-top: 1px solid #111;
+  padding: 24px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #444;
+}
+
+.stack {
+  font-size: 11px;
+  color: #00ffc8;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,80 @@
+/**
+ * Skills Section Styles
+ */
+
+.container {
+  max-width: 900px;
+}
+
+.label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #00ffc8;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 48px;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skillPill {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid #1e3a30;
+  border-radius: 2px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #00ffc8;
+  background: rgba(0, 255, 200, 0.05);
+  margin: 4px;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.skillPill:hover {
+  background: rgba(0, 255, 200, 0.12);
+  border-color: #00ffc8;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    gap: 24px;
+  }
+
+  .title {
+    margin-bottom: 32px;
+  }
+}

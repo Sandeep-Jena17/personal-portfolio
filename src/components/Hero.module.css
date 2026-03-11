@@ -1,0 +1,169 @@
+/**
+ * Hero Section Styles
+ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 5% 60px;
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  position: relative;
+}
+
+.label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #00ffc8;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #00ffc8;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.description {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #888;
+  margin-top: 28px;
+  margin-bottom: 40px;
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid #00ffc8;
+  color: #00ffc8;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ctaBtn:hover {
+  background: rgba(0, 255, 200, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.15);
+}
+
+.ctaBtn.filled {
+  background: #00ffc8;
+  color: #0a0a0f;
+  font-weight: 700;
+}
+
+.ctaBtn.filled:hover {
+  background: #00e6b4;
+  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.3);
+}
+
+.stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 64px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  color: #00ffc8;
+}
+
+.statLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, #00ffc8);
+}
+
+.scrollText {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #444;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 5% 40px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .stats {
+    gap: 32px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaBtn {
+    width: 100%;
+  }
+}

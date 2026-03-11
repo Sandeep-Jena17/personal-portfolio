@@ -1,0 +1,111 @@
+/**
+ * Contact Section Styles
+ */
+
+.container {
+  max-width: 700px;
+}
+
+.label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #00ffc8;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.description {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid #1a1a2e;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.contactItem:hover {
+  border-color: #00ffc8;
+  background: rgba(0, 255, 200, 0.03);
+}
+
+.icon {
+  color: #00ffc8;
+  font-size: 20px;
+  width: 28px;
+  text-align: center;
+}
+
+.itemContent {
+  flex: 1;
+}
+
+.itemLabel {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #555;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.itemValue {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.actionBtn {
+  background: none;
+  border: 1px solid #1a1a2e;
+  color: #00ffc8;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  padding: 6px 14px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  border-color: #00ffc8;
+  background: rgba(0, 255, 200, 0.05);
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .contactItem {
+    flex-wrap: wrap;
+  }
+
+  .actionBtn {
+    width: 100%;
+    padding: 8px 14px;
+  }
+}

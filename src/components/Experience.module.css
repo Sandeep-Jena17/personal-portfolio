@@ -1,0 +1,179 @@
+/**
+ * Experience Section Styles
+ */
+
+.container {
+  max-width: 900px;
+}
+
+.label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #00ffc8;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 48px;
+}
+
+.companyInfo {
+  margin-bottom: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #555;
+}
+
+.company {
+  color: #00ffc8;
+  font-weight: 700;
+}
+
+.duration {
+  margin-left: 8px;
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expCard {
+  border: 1px solid #1a1a2e;
+  padding: 28px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.expCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #00ffc8;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.expCard:hover {
+  border-color: #00ffc8;
+  background: rgba(0, 255, 200, 0.03);
+}
+
+.expCard:hover::before,
+.expCard.open::before {
+  transform: scaleY(1);
+}
+
+.expCard.open {
+  border-color: #00ffc8;
+  background: rgba(0, 255, 200, 0.03);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cardTitle {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cardTitle .title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #666;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(0, 255, 200, 0.08);
+  border: 1px solid rgba(0, 255, 200, 0.2);
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #00ffc8;
+  font-family: 'Space Mono', monospace;
+  white-space: nowrap;
+}
+
+.toggleIcon {
+  color: #00ffc8;
+  font-family: monospace;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.points {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.point {
+  display: flex;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1.7;
+}
+
+.arrow {
+  color: #00ffc8;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .expCard {
+    padding: 20px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+  }
+
+  .cardTitle .title {
+    font-size: 16px;
+  }
+
+  .cardMeta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

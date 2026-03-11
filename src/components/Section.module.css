@@ -1,0 +1,8 @@
+/**
+ * Section Wrapper Styles
+ */
+
+.section {
+  position: relative;
+  z-index: 1;
+}
