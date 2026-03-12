@@ -25,6 +25,8 @@ export const SKILLS = {
     'SES',
     'Cognito',
     'Amplify',
+    "cloudwatch",
+    "API Gateway",
   ],
   'Real-Time & Maps': [
     'WebRTC',
@@ -37,13 +39,15 @@ export const SKILLS = {
     'Jira',
     'Microservices',
     'Agile',
+    'CI/CD',
+    'claude'
   ],
 };
 
 export const EXPERIENCES = [
   {
     title: 'Campaign Management System',
-    subtitle: 'Media Matcher — Last 2+ Years',
+    subtitle: 'Media Matcher — Last 3+ Years',
     points: [
       'Built and scaled a campaign management platform from scratch using React & TypeScript',
       'Developed multi-step filters and dynamic listings for advertisers, publishers & campaigns',
@@ -124,6 +128,6 @@ export const HERO_TEXT = {
 };
 
 export const FOOTER_TEXT = {
-  copyright: '© 2024 Sandeep Kumar Jena',
+  copyright: '© 2026 Sandeep Kumar Jena',
   stack: 'React · TypeScript · AWS',
 };

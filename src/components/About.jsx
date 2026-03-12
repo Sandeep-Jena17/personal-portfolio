@@ -18,18 +18,25 @@ function About() {
         <div className={styles.grid}>
           <div className={styles.bio}>
             <p className={styles.paragraph}>
-              Frontend / Full-Stack Developer with over{' '}
+              Frontend / Full-Stack Developer with{' '}
               <span className={styles.highlight}>
-                4 years of professional experience
+                5+ years of professional experience
               </span>
-              , entering the 5th year. Based in Bhubaneswar, Odisha, India.
+              , based in Bhubaneswar, Odisha, India.
             </p>
             <p className={styles.paragraph}>
-              Currently focused on developing and optimizing a{' '}
+              My primary expertise is in building scalable web applications using{' '}
+              <span className={styles.highlight}>
+                React, TypeScript, and modern JavaScript
+              </span>
+              . I also work with Node.js and AWS serverless services to design efficient backend systems and microservices.
+            </p>
+            <p className={styles.paragraph}>
+              Currently, I'm contributing to the development of a{' '}
               <span className={styles.highlight}>
                 campaign management system
-              </span>{' '}
-              using React, TypeScript, and AWS serverless microservices.
+              </span>
+              , focusing on performance optimization, reusable UI architecture, and scalable cloud-based services.
             </p>
           </div>
 
