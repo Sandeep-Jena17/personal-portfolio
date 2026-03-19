@@ -4,22 +4,40 @@
  */
 
 import React, { useState, useCallback } from 'react';
-import { EXPERIENCES } from '../config/portfolio';
+import { EXPERIENCES, COMPANY_INFO } from '../config/portfolio';
+import type { ExperienceItem } from '../config/portfolio';
 import Section from './Section';
 import styles from './Experience.module.css';
 
-function ExperienceCard({ experience, isOpen, onToggle }) {
+interface ExperienceCardProps {
+  experience: ExperienceItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardProps): JSX.Element {
   const handleClick = useCallback(() => {
     onToggle();
   }, [onToggle]);
+
+  // FIX: onKeyPress is deprecated — replaced with onKeyDown
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>): void => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick],
+  );
 
   return (
     <div
       className={`${styles.expCard} ${isOpen ? styles.open : ''}`}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
-      onKeyPress={(e) => e.key === 'Enter' && handleClick()}
     >
       <div className={styles.cardHeader}>
         <div className={styles.cardTitle}>
@@ -30,9 +48,7 @@ function ExperienceCard({ experience, isOpen, onToggle }) {
           <span className={styles.tag}>{experience.tag}</span>
           <span
             className={styles.toggleIcon}
-            style={{
-              transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
-            }}
+            style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
           >
             +
           </span>
@@ -41,8 +57,9 @@ function ExperienceCard({ experience, isOpen, onToggle }) {
 
       {isOpen && (
         <ul className={styles.points}>
-          {experience.points.map((point, idx) => (
-            <li key={idx} className={styles.point}>
+          {experience.points.map((point) => (
+            // FIX: use point content as key (unique within a card), not index
+            <li key={point} className={styles.point}>
               <span className={styles.arrow}>→</span>
               <span>{point}</span>
             </li>
@@ -53,15 +70,12 @@ function ExperienceCard({ experience, isOpen, onToggle }) {
   );
 }
 
-function Experience() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+function Experience(): JSX.Element {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const toggleExpanded = useCallback(
-    (index) => {
-      setExpandedIndex((prev) => (prev === index ? null : index));
-    },
-    []
-  );
+  const toggleExpanded = useCallback((index: number): void => {
+    setExpandedIndex((prev) => (prev === index ? null : index));
+  }, []);
 
   return (
     <Section id="experience" style={{ padding: '80px 5%', position: 'relative' }}>
@@ -69,15 +83,17 @@ function Experience() {
         <div className={styles.label}>{/* Professional Experience */}</div>
         <h2 className={styles.title}>Work History</h2>
 
+        {/* FIX: company name & duration moved from hardcoded JSX to config */}
         <div className={styles.companyInfo}>
-          <span className={styles.company}>Empower Solutions</span>
-          <span className={styles.duration}>— Feb 2021 → Present (5+ Years)</span>
+          <span className={styles.company}>{COMPANY_INFO.name}</span>
+          <span className={styles.duration}>— {COMPANY_INFO.duration}</span>
         </div>
 
         <div className={styles.experienceList}>
           {EXPERIENCES.map((exp, idx) => (
+            // FIX: use unique title as key, not array index
             <ExperienceCard
-              key={idx}
+              key={exp.title}
               experience={exp}
               isOpen={expandedIndex === idx}
               onToggle={() => toggleExpanded(idx)}

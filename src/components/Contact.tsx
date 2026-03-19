@@ -9,7 +9,15 @@ import { CONTACT_INFO } from '../config/portfolio';
 import Section from './Section';
 import styles from './Contact.module.css';
 
-function ContactItem({ icon, label, value, action, actionLabel }) {
+interface ContactItemProps {
+  icon: string;
+  label: string;
+  value: string;
+  action?: () => void;
+  actionLabel?: string;
+}
+
+function ContactItem({ icon, label, value, action, actionLabel }: ContactItemProps): JSX.Element {
   return (
     <div className={styles.contactItem}>
       <span className={styles.icon}>{icon}</span>
@@ -17,7 +25,7 @@ function ContactItem({ icon, label, value, action, actionLabel }) {
         <div className={styles.itemLabel}>{label.toUpperCase()}</div>
         <div className={styles.itemValue}>{value}</div>
       </div>
-      {action && (
+      {action && actionLabel && (
         <button
           onClick={action}
           className={styles.actionBtn}
@@ -30,7 +38,7 @@ function ContactItem({ icon, label, value, action, actionLabel }) {
   );
 }
 
-function Contact() {
+function Contact(): JSX.Element {
   const [copied, copy] = useCopyToClipboard();
 
   const handleCopyEmail = useCallback(() => {

@@ -8,13 +8,15 @@ import { HERO_TEXT, STATS } from '../config/portfolio';
 import THEME from '../constants/theme';
 import styles from './Hero.module.css';
 
-function Hero() {
-  const scrollTo = useCallback((id) => {
+function Hero(): JSX.Element {
+  const scrollTo = useCallback((id: string): void => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
+
+  const nameLines = HERO_TEXT.name.split('\n');
 
   return (
     <section id="home" className={styles.hero}>
@@ -23,17 +25,19 @@ function Hero() {
           <div className={styles.label}>{HERO_TEXT.label}</div>
 
           <h1 className={styles.title}>
-            {HERO_TEXT.name.split('\n').map((line, idx) => (
-              <React.Fragment key={idx}>
+            {nameLines.map((line, idx) => (
+              // FIX: use line content as key (unique), not array index
+              <React.Fragment key={line}>
                 {line === 'Kumar Jena' ? (
                   <>
-                    <span style={{ color: THEME.COLORS.primary }}>{line.split(' ')[0]}</span> {line.split(' ')[1]}
+                    <span style={{ color: THEME.COLORS.primary }}>{line.split(' ')[0]}</span>{' '}
+                    {line.split(' ')[1]}
                     <span className={styles.cursor}>_</span>
                   </>
                 ) : (
                   line
                 )}
-                {idx < HERO_TEXT.name.split('\n').length - 1 && <br />}
+                {idx < nameLines.length - 1 && <br />}
               </React.Fragment>
             ))}
           </h1>
@@ -55,10 +59,10 @@ function Hero() {
             </button>
           </div>
 
-          {/* Stats */}
+          {/* Stats — FIX: use unique label as key, not array index */}
           <div className={styles.stats}>
-            {STATS.map(({ number, label }, idx) => (
-              <div key={idx} className={styles.stat}>
+            {STATS.map(({ number, label }) => (
+              <div key={label} className={styles.stat}>
                 <div className={styles.statNumber}>{number}</div>
                 <div className={styles.statLabel}>{label}</div>
               </div>

@@ -9,11 +9,11 @@ import { useNavigation } from '../hooks';
 import THEME from '../constants/theme';
 import styles from './Navigation.module.css';
 
-function Navigation() {
+function Navigation(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
-  const active = useNavigation(NAV_LINKS, NAV_CONFIG.scrollOffset);
+  const active = useNavigation([...NAV_LINKS], NAV_CONFIG.scrollOffset);
 
-  const scrollTo = useCallback((id) => {
+  const scrollTo = useCallback((id: string): void => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -21,7 +21,9 @@ function Navigation() {
     }
   }, []);
 
-
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
 
   return (
     <nav className={styles.navbar}>
@@ -45,8 +47,9 @@ function Navigation() {
       {/* Mobile Hamburger */}
       <button
         className={styles.hamburger}
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={toggleMenu}
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
       >
         {menuOpen ? '✕' : '☰'}
       </button>

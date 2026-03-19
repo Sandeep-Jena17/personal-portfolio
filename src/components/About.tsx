@@ -8,7 +8,15 @@ import { CONTACT_INFO } from '../config/portfolio';
 import Section from './Section';
 import styles from './About.module.css';
 
-function About() {
+function About(): JSX.Element {
+  const infoItems = [
+    { label: 'Location', value: CONTACT_INFO.location },
+    { label: 'Email', value: CONTACT_INFO.email },
+    { label: 'Phone', value: CONTACT_INFO.phone },
+    { label: 'Education', value: CONTACT_INFO.education },
+    { label: 'Status', value: CONTACT_INFO.status },
+  ] as const;
+
   return (
     <Section id="about" style={{ padding: '80px 5%', position: 'relative' }}>
       <div className={styles.container}>
@@ -29,25 +37,19 @@ function About() {
               <span className={styles.highlight}>
                 React, TypeScript, and modern JavaScript
               </span>
-              . I also work with Node.js and AWS serverless services to design efficient backend systems and microservices.
+              . I also work with Node.js and AWS serverless services to design
+              efficient backend systems and microservices.
             </p>
             <p className={styles.paragraph}>
               Currently, I'm contributing to the development of a{' '}
-              <span className={styles.highlight}>
-                campaign management system
-              </span>
-              , focusing on performance optimization, reusable UI architecture, and scalable cloud-based services.
+              <span className={styles.highlight}>campaign management system</span>,
+              focusing on performance optimization, reusable UI architecture, and
+              scalable cloud-based services.
             </p>
           </div>
 
           <div className={styles.infoList}>
-            {[
-              { label: 'Location', value: CONTACT_INFO.location },
-              { label: 'Email', value: CONTACT_INFO.email },
-              { label: 'Phone', value: CONTACT_INFO.phone },
-              { label: 'Education', value: CONTACT_INFO.education },
-              { label: 'Status', value: CONTACT_INFO.status },
-            ].map(({ label, value }) => (
+            {infoItems.map(({ label, value }) => (
               <div key={label} className={styles.infoItem}>
                 <span className={styles.infoLabel}>{label.toUpperCase()}</span>
                 <span className={styles.infoValue}>{value}</span>

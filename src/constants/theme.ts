@@ -6,10 +6,10 @@
 
 export const COLORS = {
   // Primary palette
-  primary: '#00ffc8',      // Cyan accent
+  primary: '#00ffc8',
   primaryDark: '#00e6b4',
   primaryLight: '#26ffda',
-  
+
   // Neutrals
   black: '#0a0a0f',
   darkGray: '#1a1a2e',
@@ -19,13 +19,13 @@ export const COLORS = {
   lighter: '#ccc',
   white: '#fff',
   faint: '#e8e8f0',
-  
+
   // Semantic
   background: '#0a0a0f',
   surface: '#0d0d15',
   border: '#1a1a2e',
   borderLight: 'rgba(255,255,255,0.04)',
-};
+} as const;
 
 export const TYPOGRAPHY = {
   fontFamilies: {
@@ -33,7 +33,7 @@ export const TYPOGRAPHY = {
     spaceMono: "'Space Mono', monospace",
     syne: "'Syne', sans-serif",
   },
-  
+
   sizes: {
     xs: 10,
     sm: 11,
@@ -46,13 +46,13 @@ export const TYPOGRAPHY = {
     '4xl': 48,
     '5xl': 96,
   },
-  
+
   weights: {
     regular: 400,
     bold: 700,
     black: 800,
   },
-};
+} as const;
 
 export const SPACING = {
   xs: 4,
@@ -66,20 +66,20 @@ export const SPACING = {
   '5xl': 48,
   '6xl': 60,
   '7xl': 64,
-};
+} as const;
 
 export const TRANSITIONS = {
   fast: '0.2s',
   normal: '0.3s',
   slow: '0.7s',
   easing: 'ease',
-};
+} as const;
 
 export const BREAKPOINTS = {
   mobile: '768px',
   tablet: '1024px',
   desktop: '1200px',
-};
+} as const;
 
 export const SHADOWS = {
   sm: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -87,7 +87,7 @@ export const SHADOWS = {
   lg: '0 20px 25px rgba(0, 0, 0, 0.15)',
   glow: '0 8px 30px rgba(0,255,200,0.15)',
   glowHeavy: '0 8px 30px rgba(0,255,200,0.3)',
-};
+} as const;
 
 export const THEME = {
   COLORS,
@@ -96,6 +96,9 @@ export const THEME = {
   TRANSITIONS,
   BREAKPOINTS,
   SHADOWS,
-};
+} as const;
+
+export type ColorKey = keyof typeof COLORS;
+export type SpacingKey = keyof typeof SPACING;
 
 export default THEME;

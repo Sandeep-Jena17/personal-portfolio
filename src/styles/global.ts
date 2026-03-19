@@ -1,9 +1,12 @@
 /**
  * Global Styles
- * Base styles, animations, and utilities
+ * Base styles, animations, and utilities — imported by App.tsx.
+ *
+ * FIX: was referencing COLORS.mobile (which does not exist).
+ * Corrected to BREAKPOINTS.mobile.
  */
 
-import { COLORS, TYPOGRAPHY } from '../constants/theme';
+import { BREAKPOINTS, COLORS, TYPOGRAPHY } from '../constants/theme';
 
 export const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
@@ -27,8 +30,8 @@ export const globalStyles = `
 
   /* Scrollbar Styling */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -37,53 +40,35 @@ export const globalStyles = `
 
   ::-webkit-scrollbar-thumb {
     background: ${COLORS.primary};
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: ${COLORS.primaryDark};
   }
 
-  /* Common Animations */
+  /* Animations */
   @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   @keyframes slideInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes glow {
-    0%, 100% {
-      text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
-    }
-    50% {
-      text-shadow: 0 0 30px rgba(0, 255, 200, 0.6);
-    }
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 200, 0.4); }
+    50%       { text-shadow: 0 0 30px rgba(0, 255, 200, 0.6); }
   }
 
-  /* Utility Classes */
+  /* Utility classes */
   .cursor-blink {
     animation: blink 1s infinite;
     color: ${COLORS.primary};
@@ -98,8 +83,7 @@ export const globalStyles = `
     text-shadow: 0 0 30px rgba(0, 255, 200, 0.4);
   }
 
-  /* Responsive adjustments */
-  @media (max-width: ${COLORS.mobile || '768px'}) {
+  @media (max-width: ${BREAKPOINTS.mobile}) {
     ::-webkit-scrollbar {
       width: 3px;
     }

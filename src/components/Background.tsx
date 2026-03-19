@@ -4,8 +4,9 @@
  */
 
 import React from 'react';
+import THEME from '../constants/theme';
 
-export function GridBackground() {
+export function GridBackground(): JSX.Element {
   return (
     <div
       style={{
@@ -17,8 +18,8 @@ export function GridBackground() {
         zIndex: 0,
         pointerEvents: 'none',
         backgroundImage: `
-          linear-gradient(rgba(0,255,200,0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0,255,200,0.04) 1px, transparent 1px)
+          linear-gradient(${THEME.COLORS.borderLight} 1px, transparent 1px),
+          linear-gradient(90deg, ${THEME.COLORS.borderLight} 1px, transparent 1px)
         `,
         backgroundSize: '60px 60px',
       }}
@@ -27,7 +28,7 @@ export function GridBackground() {
   );
 }
 
-export function RadialGlow() {
+export function RadialGlow(): JSX.Element {
   return (
     <div
       style={{

@@ -1,9 +1,47 @@
 /**
  * Portfolio Configuration
- * All portfolio content and data
+ * All portfolio content and data — single source of truth
  */
 
-export const SKILLS = {
+export interface ExperienceItem {
+  title: string;
+  subtitle: string;
+  points: string[];
+  tag: string;
+}
+
+export interface ContactInfo {
+  email: string;
+  phone: string;
+  location: string;
+  education: string;
+  status: string;
+}
+
+export interface Stat {
+  number: string;
+  label: string;
+}
+
+export interface HeroText {
+  label: string;
+  name: string;
+  description: string;
+}
+
+export interface FooterText {
+  copyright: string;
+  stack: string;
+}
+
+export interface CompanyInfo {
+  name: string;
+  duration: string;
+}
+
+export type SkillsMap = Record<string, string[]>;
+
+export const SKILLS: SkillsMap = {
   Frontend: [
     'React.js',
     'TypeScript',
@@ -25,8 +63,8 @@ export const SKILLS = {
     'SES',
     'Cognito',
     'Amplify',
-    "cloudwatch",
-    "API Gateway",
+    'CloudWatch',
+    'API Gateway',
   ],
   'Real-Time & Maps': [
     'WebRTC',
@@ -40,11 +78,11 @@ export const SKILLS = {
     'Microservices',
     'Agile',
     'CI/CD',
-    'claude'
+    'Claude',
   ],
 };
 
-export const EXPERIENCES = [
+export const EXPERIENCES: ExperienceItem[] = [
   {
     title: 'Campaign Management System',
     subtitle: 'Media Matcher — Last 3+ Years',
@@ -99,6 +137,12 @@ export const EXPERIENCES = [
   },
 ];
 
+// Moved from Experience.jsx — single source of truth for company info
+export const COMPANY_INFO: CompanyInfo = {
+  name: 'Empower Solutions',
+  duration: 'Feb 2021 → Present (5+ Years)',
+};
+
 export const ABOUT = {
   intro:
     'Frontend / Full-Stack Developer with over 4 years of professional experience, entering the 5th year. Based in Bhubaneswar, Odisha, India.',
@@ -106,7 +150,7 @@ export const ABOUT = {
     'Currently focused on developing and optimizing a campaign management system using React, TypeScript, and AWS serverless microservices.',
 };
 
-export const CONTACT_INFO = {
+export const CONTACT_INFO: ContactInfo = {
   email: 'jenasandeep595@gmail.com',
   phone: '+91-8917404918',
   location: 'Bhubaneswar, Odisha, India',
@@ -114,20 +158,20 @@ export const CONTACT_INFO = {
   status: 'Open to opportunities',
 };
 
-export const STATS = [
+export const STATS: Stat[] = [
   { number: '5+', label: 'Years Experience' },
   { number: '5+', label: 'Projects Shipped' },
   { number: '10+', label: 'AWS Services Used' },
 ];
 
-export const HERO_TEXT = {
+export const HERO_TEXT: HeroText = {
   label: '// Frontend & Full-Stack Developer',
   name: 'Sandeep\nKumar Jena',
   description:
     '5+ years building enterprise-grade apps across media, education, healthcare & environment. React specialist · AWS serverless expert · TypeScript advocate.',
 };
 
-export const FOOTER_TEXT = {
+export const FOOTER_TEXT: FooterText = {
   copyright: '© 2026 Sandeep Kumar Jena',
   stack: 'React · TypeScript · AWS',
 };
