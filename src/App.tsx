@@ -22,6 +22,7 @@ import {
 } from './components';
 import THEME from './constants/theme';
 import { globalStyles } from './styles/global';
+import ChatBot from './components/ChatBot/ChatBot';
 import './App.css';
 
 function App(): JSX.Element {
@@ -59,6 +60,9 @@ function App(): JSX.Element {
         <Contact />
         <Footer />
       </div>
+
+      {/* Floating AI Chatbot — visible on all sections */}
+      <ChatBot />
     </div>
   );
 }
